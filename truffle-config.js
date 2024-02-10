@@ -1,3 +1,8 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
+const HDWalletProvider = require('@truffle/hdwallet-provider')
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -44,7 +49,7 @@
 // require('dotenv').config();
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+const { PROJECT_ID, PRIVATE_KEY_0, PRIVATE_KEY_1, MNEMONIC } = process.env
 
 module.exports = {
   /**
@@ -69,6 +74,20 @@ module.exports = {
      port: 8545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
+    sepolia: {
+      provider: () => new HDWalletProvider({
+      mnemonic: {
+      phrase: MNEMONIC
+      },
+      providerOrUrl: `https://sepolia.infura.io/v3/${PROJECT_ID}`
+      }),
+      network_id: 11155111, // Sepolia's network ID
+      gas: 4000000, // Adjust the gas limit as per your requirements
+      gasPrice: 10000000000, // Set the gas price to an appropriate value
+      confirmations: 2, // Set the number of confirmations needed for a transaction
+      timeoutBlocks: 200, // Set the timeout for transactions
+      skipDryRun: true // Skip the dry run option
+     }
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -83,7 +102,7 @@ module.exports = {
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
     // goerli: {
-    //   provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.infura.io/v3/${PROJECT_ID}`),
+    //   provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.infura.io/v3/${GOERLI_PROJECT_ID}`),
     //   network_id: 5,       // Goerli's id
     //   confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
     //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)

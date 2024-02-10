@@ -27,7 +27,7 @@ contract VendingMachine {
     }
 
     modifier hasEnoughEther(uint amount) {
-        if (msg.value <= amount * 1 ether) 
+        if (msg.value <= amount * 50 wei) 
             revert NotEnoughEther();
             _;
         
