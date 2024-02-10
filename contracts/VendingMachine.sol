@@ -3,7 +3,7 @@ pragma solidity >=0.6.12 <0.9.0;
 
 contract VendingMachine {
     address public owner;
-    mapping (address => uint) public  dounatBalances;
+    mapping (address => uint) public dounatBalances;
 
     constructor() {
         owner = msg.sender;
