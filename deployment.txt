@@ -1,0 +1,16 @@
+2_VendingMachine.js
+===================
+
+   Deploying 'VendingMachine'
+   --------------------------
+   > transaction hash:    0x0d8bc93601b093c7863706ba0378cd42489de6492e952b9bb202f0ba1d3914c0
+   > Blocks: 0            Seconds: 8
+   > contract address:    0x31f967877453F4910593C3bfDB1703FAE8679940
+   > block number:        5259860
+   > block timestamp:     1707582924
+   > account:             0x931f922C88eaCc9a4201F768c663ec4ae4715eEe
+   > balance:             0.49562417
+   > gas used:            437583 (0x6ad4f)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00437583 ETH
