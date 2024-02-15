@@ -39,7 +39,9 @@ contract VendingMachine {
             _;
     }
 
-
+    receive() external payable {
+    // This function is executed when a contract receives plain Ether (without data)
+    }   
 
     function getVendingMachineBalance() public view returns (uint) {
         return dounatBalances[address(this)];
